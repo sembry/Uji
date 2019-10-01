@@ -1,0 +1,9 @@
+:root {
+  --background-color: #F5F4FF;
+}
+
+.post {
+  .color: var(--background-color);
+  .height: 700;
+  .width: 700;
+}
