@@ -1,6 +1,8 @@
+// Common UI shared amongst all pages
+// Contains header with title, profile button, new post button
 import React from 'react';
-import profile from './profile60.png';
-import newPost from './newPost60.png';
+import profile from './Assets/profile60.png';
+import newPost from './Assets/newPost60.png';
 import './App.css';
 import firebase from './firebase.js'
 
