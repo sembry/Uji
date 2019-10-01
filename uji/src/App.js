@@ -2,6 +2,7 @@ import React from 'react';
 import profile from './profile60.png';
 import newPost from './newPost60.png';
 import './App.css';
+import firebase from './firebase.js'
 
 
 function App() {
