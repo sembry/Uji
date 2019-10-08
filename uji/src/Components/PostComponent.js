@@ -8,6 +8,11 @@ class Post extends React.Component {
   render() {
     return (
       <div className = "Post">
+        <div className = "userName">
+           <p>{props.username}</p>
+        </div>
+        <div className = "postText">
+          <p>{props.postText}</p>
       </div>
     );
   }
