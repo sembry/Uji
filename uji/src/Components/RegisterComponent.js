@@ -17,9 +17,9 @@ class Register extends Component {
         <h1>Register</h1>
         <section className="credentials">
             <form onSubmit={this.handleSubmit}>
-              <input type="text" name="firstname" placeholder="Username" onChange={this.handleChange} value={this.state.username}/>
-              <input type="text" name="lastname" placeholder="Username" onChange={this.handleChange} value={this.state.username}/>
-              <input type="text" name="email" placeholder="Username" onChange={this.handleChange} value={this.state.username}/>
+              <input type="text" name="firstname" placeholder="First name" onChange={this.handleChange} value={this.state.username}/>
+              <input type="text" name="lastname" placeholder="Last name" onChange={this.handleChange} value={this.state.username}/>
+              <input type="text" name="email" placeholder="Email" onChange={this.handleChange} value={this.state.username}/>
               <input type="text" name="username" placeholder="Username" onChange={this.handleChange} value={this.state.username}/>
               <input type="text" name="password" placeholder="Password" onChange={this.handleChange} value={this.state.password}/>
               <button>Submit</button>

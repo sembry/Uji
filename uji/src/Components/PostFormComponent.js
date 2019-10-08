@@ -18,6 +18,7 @@ class PostForm extends React.Component {
       });
   }
 
+  // submits the new post with content + user to database
   handleSubmit(e) {
     e.preventDefault();
     const itemsRef = firebase.database().ref('posts');
@@ -26,6 +27,7 @@ class PostForm extends React.Component {
       username: this.props.user
     }
     itemsRef.push(post);
+    // switch back to feed view
     this.props.history.push('/feed')
   }
 

@@ -17,32 +17,28 @@ class Login extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
       }
 
+      // update text fields
       handleChange(e) {
           this.setState({
               [e.target.name]: e.target.value
           });
       }
 
+      // checks if login exists and directs user to home or to registration
       handleSubmit(e) {
         e.preventDefault();
-        const login = {
-          username: this.state.username,
-          password: this.state.password
-        }
-        this.checkLogins(login);
-      }
-
-      checkLogins(login) {
-          const itemsRef = firebase.database().ref('logins');
-          itemsRef.on('value', (snapshot) => {
-              let logins = snapshot.val();
-              for (let item in logins){
-                  if (login = item){
-                    this.props.setUser(this.state.username);
-                    this.props.history.push("/postform");
-                  }
-              }
-          });
+        const username = this.state.username;
+        const itemsRef = firebase.database().ref('users');
+        itemsRef.child(username).once('value', function(snapshot) {
+            var exists = (snapshot.val() !== null);
+            if (exists){
+                this.props.setUser(this.state.username);
+                this.props.history.push("/");
+            }
+            else {
+                this.props.history.push("register");
+            }
+        });
       }
 
       render() {
