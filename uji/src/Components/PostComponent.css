@@ -1,9 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+
 :root {
   --background-color: #F5F4FF;
+  --main-accent-color: #561FCC;
+  --main-txt-color: black;
 }
 
 .post {
   .color: var(--background-color);
   .height: 700;
   .width: 700;
+}
+
+.userName {
+  font-family: 'Varela Round', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  color: var(--main-accent-color);
+}
+
+.postText {
+  font-family: 'Varela Round', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  color: var(--main-txt-color);
 }
