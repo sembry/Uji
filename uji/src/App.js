@@ -3,24 +3,65 @@
 import React from 'react';
 import profile from './Assets/profile60.png';
 import newPost from './Assets/newPost60.png';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import './App.css';
+import Login from './Components/LoginComponent';
+import Feed from './Components/FeedComponent';
+import Register from './Components/RegisterComponent';
+import PostForm from './Components/PostFormComponent';
+import * as serviceWorker from './serviceWorker';
 import firebase from './firebase.js'
 
 
-function App() {
-  return (
-    <div className="Parent">
-      <div className="Header">
-        <header className="UJI">
-          UJI
-        </header>
-        <div className = "profileButton">
-          <img width = "60px" alt="Profile Button" src={profile}/>
+class ParentComponent extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = { user: 'none' };
+    this.setUser = this.setUser.bind(this);
+  }
+
+  setUser(username) {
+    this.setState({
+      user: username
+    });
+  }
+
+  render() {
+    return (
+      <div className="Parent">
+        <div className="Header">
+          <header className="UJI">
+            UJI
+          </header>
+          <h2> User: {this.state.user} </h2>
+          <div className = "profileButton">
+            <img width = "60px" alt="Profile Button" src={profile}/>
+          </div>
+        </div>
+        <div>
+          <Router>
+            <Switch>
+              <Route path="/login" render={()=><Login setUser={this.setUser} />} />
+              <Route path="/feed" component={Feed} />
+              <Route path="/postform" render={() => <PostForm user={this.state.user} />} />
+            </Switch>
+          </Router>
+        </div>
+        <div className="newPostButton">
+          <img width = "60px" alt="New Post Button" src={newPost}/>
         </div>
       </div>
-      <div className="newPostButton">
-        <img width = "60px" alt="New Post Button" src={newPost}/>
-      </div>
+    );
+  }
+}
+
+
+const App = () => {
+  return (
+    <div className="App">
+      <ParentComponent />
     </div>
   );
 }
