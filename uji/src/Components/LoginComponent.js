@@ -18,27 +18,28 @@ class Login extends React.Component {
       }
 
       // update text fields
-      handleChange(e) {
+      handleChange = (e) => {
           this.setState({
               [e.target.name]: e.target.value
           });
       }
 
       // checks if login exists and directs user to home or to registration
-      handleSubmit(e) {
+      handleSubmit = (e) => {
         e.preventDefault();
+        var exists = null;
         const username = this.state.username;
         const itemsRef = firebase.database().ref('users');
         itemsRef.child(username).once('value', function(snapshot) {
-            var exists = (snapshot.val() !== null);
-            if (exists){
-                this.props.setUser(this.state.username);
-                this.props.history.push("/");
-            }
-            else {
-                this.props.history.push("register");
-            }
+            exists = (snapshot.val() !== null);
         });
+        if (exists){
+            this.setUser(username);
+            this.props.history.push("/postform");
+        }
+        else {              
+            this.props.history.push("/register");
+        }
       }
 
       render() {

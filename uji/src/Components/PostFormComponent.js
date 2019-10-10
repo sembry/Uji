@@ -1,6 +1,8 @@
 import React from 'react';
 import './PostComponent.css';
 import firebase from '../firebase.js';
+import { withRouter, Route, Link, BrowserRouter as Router } from 'react-router-dom'
+
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -18,7 +20,7 @@ class PostForm extends React.Component {
       });
   }
 
-  // submits the new post with content + user to database
+  // push post to the database
   handleSubmit(e) {
     e.preventDefault();
     const itemsRef = firebase.database().ref('posts');
@@ -26,7 +28,7 @@ class PostForm extends React.Component {
       content: this.state.content,
       username: this.props.user
     }
-    itemsRef.push(post);
+    itemsRef.set(post);
     // switch back to feed view
     this.props.history.push('/feed')
   }
@@ -36,6 +38,7 @@ class PostForm extends React.Component {
       <div className = "postform">
         <h1>New post</h1>
         <section className="credentials">
+            <p> {this.props.user} </p>
             <form onSubmit={this.handleSubmit}>
               <input type="text" name="content" placeholder="Write anything" onChange={this.handleChange} value={this.state.content}/>
               <button>Submit</button>
@@ -45,4 +48,4 @@ class PostForm extends React.Component {
     );
   }
 }
-export default PostForm;
+export default withRouter(PostForm);
