@@ -28,7 +28,14 @@ class PostForm extends React.Component {
       content: this.state.content,
       username: this.props.user
     }
-    itemsRef.set(post);
+    var onComplete = function(error) {
+      if (error) {
+        console.log('Operation failed');
+      } else {
+        console.log('Operation completed');
+      }
+    }
+    itemsRef.child(this.props.user).set(post, onComplete);
     // switch back to feed view
     this.props.history.push('/feed')
   }

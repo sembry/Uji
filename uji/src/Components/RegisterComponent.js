@@ -33,12 +33,19 @@ class Register extends Component {
     const state = this.state;
     const username = this.state.username;
     const itemsRef = firebase.database().ref('users');
+    const history = this.props.history;
+    var onComplete = function(error) {
+      if (error) {
+        console.log('Operation failed');
+      } else {
+        console.log('Operation completed');
+      }
+    }
     itemsRef.child(username).once('value', function(snapshot) {
         var exists = (snapshot.val() !== null);
         if (exists){
-          this.props.history.push("/login");
-        }
-        else {
+          history.push("/login");
+        } else {
           const newUser = {
             firstname: state.firstname,
             lastname: state.lastname,
@@ -46,8 +53,8 @@ class Register extends Component {
             username: state.username,
             password: state.password
           }
-          itemsRef.set(username, newUser);
-          this.props.history.push("/register");
+          itemsRef.child(username).set(newUser, onComplete);
+          history.push("/feed");
         }
     });
   }
