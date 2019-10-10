@@ -4,7 +4,7 @@ import firebase from '../firebase.js';
 import PostForm from './PostFormComponent';
 import setUser from '../App';
 import { withRouter, Route, Link, BrowserRouter as Router } from 'react-router-dom'
-
+import PropTypes from 'prop-types';
 
 class Login extends React.Component {
     constructor(props) {
@@ -19,6 +19,7 @@ class Login extends React.Component {
 
       // update text fields
       handleChange = (e) => {
+          this.props.setUser(this.state.username);
           this.setState({
               [e.target.name]: e.target.value
           });
@@ -27,19 +28,19 @@ class Login extends React.Component {
       // checks if login exists and directs user to home or to registration
       handleSubmit = (e) => {
         e.preventDefault();
-        var exists = null;
         const username = this.state.username;
         const itemsRef = firebase.database().ref('users');
+        const props = this.props;
         itemsRef.child(username).once('value', function(snapshot) {
-            exists = (snapshot.val() !== null);
+            var exists = (snapshot.val() !== null);
+            if (exists){
+                props.setUser(username);
+                props.history.push("/postform");
+            }
+            else {              
+                props.history.push("/register");
+            }
         });
-        if (exists){
-            this.setUser(username);
-            this.props.history.push("/postform");
-        }
-        else {              
-            this.props.history.push("/register");
-        }
       }
 
       render() {

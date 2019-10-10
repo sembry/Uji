@@ -40,7 +40,7 @@ class ParentComponent extends React.Component{
             <img width = "60px" alt="Profile Button" src={profile}/>
           </div>
         </div>
-        <div>
+        <div className="frame">
           <Router>
             <Switch>
               <Route path="/login" render={()=><Login setUser={this.setUser.bind(this)} />} />
