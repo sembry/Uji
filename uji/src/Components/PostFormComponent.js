@@ -1,5 +1,5 @@
 import React from 'react';
-import './PostFormComponent.css';
+import './FormStyling.css';
 import firebase from '../firebase.js';
 import { withRouter, Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
@@ -42,14 +42,19 @@ class PostForm extends React.Component {
 
   render() {
     return (
-      <div className = "postform">
-        <section className="credentials">
-            <h1>{this.props.user}</h1>
-            <form onSubmit={this.handleSubmit}>
-              <input type="text" name="content" placeholder="Write anything" onChange={this.handleChange} value={this.state.content}/>
-              <button>Submit</button>
-            </form>
-        </section>
+      <div className = "form">
+        <div className = "title"> 
+                <h1>New Post</h1>
+        </div>
+        <div classname = "frame">
+          <section className="credentials">
+              <h1>User: {this.props.user}</h1>
+              <form onSubmit={this.handleSubmit}>
+                <input type="text" name="content" placeholder="Write anything" onChange={this.handleChange} value={this.state.content}/>
+                <button>Submit</button>
+              </form>
+          </section>
+        </div>
       </div>
     );
   }

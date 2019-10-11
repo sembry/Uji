@@ -1,5 +1,5 @@
 import React from 'react';
-import './LoginComponent.css';
+import './FormStyling.css';
 import firebase from '../firebase.js';
 import PostForm from './PostFormComponent';
 import setUser from '../App';
@@ -45,17 +45,19 @@ class Login extends React.Component {
 
       render() {
         return (
-          <div className = "login">
-            <div> 
+          <div className = "form">
+            <div className = "title"> 
                 <h1>Login</h1>
             </div>
-            <section className="credentials">
-                <form onSubmit={this.handleSubmit}>
-                  <input type="text" name="username" placeholder="Username" onChange={this.handleChange} value={this.state.username}/>
-                  <input type="text" name="password" placeholder="Password" onChange={this.handleChange} value={this.state.password}/>
-                  <button>Submit</button>
-                </form>
-          </section>
+            <div classname = "frame">
+                <div className="credentials">
+                    <form onSubmit={this.handleSubmit}>
+                    <input type="text" name="username" placeholder="Username" onChange={this.handleChange} value={this.state.username}/>
+                    <input type="text" name="password" placeholder="Password" onChange={this.handleChange} value={this.state.password}/>
+                    <button>Submit</button>
+                    </form>
+                </div>
+            </div>
           </div>
         );
       }
