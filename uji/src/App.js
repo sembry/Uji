@@ -48,7 +48,7 @@ class ParentComponent extends React.Component{
           <Router>
             <Switch>
               <Route path="/login" render={()=><Login setUser={this.setUser.bind(this)} />} />
-              <Route path="/feed" component={Feed} />
+              <Route path="/feed" render={() => <Feed user={this.state.user} />} />
               <Route path="/postform" render={() => <PostForm user={this.state.user} />} />
               <Route path="/register" render={() => <Register setUser={this.setUser.bind(this)} />} />
             </Switch>
