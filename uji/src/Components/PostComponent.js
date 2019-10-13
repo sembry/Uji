@@ -4,15 +4,17 @@ import './PostComponent.css'
 class Post extends React.Component {
   constructor(props) {
     super(props);
+
   }
   render() {
     return (
       <div className = "Post">
-        <div className = "userName">
-           <p>{props.username}</p>
+        <div className = "username">
+           <p>{this.props.username}</p>
         </div>
         <div className = "postText">
-          <p>{props.postText}</p>
+          <p>{this.props.postText}</p>
+        </div>
       </div>
     );
   }
