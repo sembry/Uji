@@ -8,14 +8,16 @@ class Post extends React.Component {
   }
   render() {
     return (
-      <div className = "Post">
-        <div className = "username">
-           <p>{this.props.username}</p>
+      <BodyBackgroundColor backgroundColor= "#F5F4FF">
+        <div className = "Post">
+          <div className = "username">
+             <p>{this.props.username}</p>
+          </div>
+          <div className = "postText">
+            <p>{this.props.postText}</p>
+          </div>
         </div>
-        <div className = "postText">
-          <p>{this.props.postText}</p>
-        </div>
-      </div>
+      </BodyBackgroundColor>
     );
   }
 }
