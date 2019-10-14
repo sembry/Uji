@@ -22,8 +22,26 @@ import firebase from './firebase.js'
 class ParentComponent extends React.Component{
   constructor(props) {
     super(props);
-    this.state = { user: 'none' };
+    this.state = { loading: true, authenticated: false, user: null };
     this.setUser = this.setUser.bind(this);
+  }
+
+  componentWillMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          authenticated: true,
+          currentUser: user,
+          loading: false
+        });
+      } else {
+        this.setState({
+          authenticated: false,
+          currentUser: null,
+          loading: false
+        });
+      }
+    });
   }
 
   setUser(username) {
@@ -33,6 +51,10 @@ class ParentComponent extends React.Component{
   }
 
   render() {
+    const { authenticated, loading } = this.state;
+    if (loading) {
+      return <p>Loading...</p>;
+    }
     return (
       <div className="Parent">
         <div className="Header">

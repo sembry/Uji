@@ -27,6 +27,19 @@ class Register extends Component {
       });
   }
 
+  handleSignUp = async event => {
+    event.preventDefault();
+    const { email, password } = event.target.elements;
+    try {
+      const user = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(email.value, password.value);
+      this.props.history.push("/feed");
+    } catch (error) {
+      alert(error);
+    }
+  };
+
   // checks if login exists and directs user to home or to registration
   handleSubmit(e) {
     e.preventDefault();
@@ -54,6 +67,10 @@ class Register extends Component {
             password: state.password
           }
           itemsRef.child(username).set(newUser, onComplete);
+          // firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+          //   var errorCode = error.code;
+          //   var errorMessage = error.message;
+          // });
           history.push("/feed");
         }
     });
@@ -64,7 +81,8 @@ class Register extends Component {
         <div className = "register">
         <h1>Register</h1>
         <section className="credentials">
-            <form onSubmit={this.handleSubmit}>
+            {/* <form onSubmit={this.handleSubmit}> */}
+            <form onSubmit={this.handleSignUp}>
               <input type="text" name="firstname" placeholder="First name" onChange={this.handleChange} value={this.state.firstname}/>
               <input type="text" name="lastname" placeholder="Last name" onChange={this.handleChange} value={this.state.lastname}/>
               <input type="text" name="email" placeholder="Email" onChange={this.handleChange} value={this.state.email}/>
