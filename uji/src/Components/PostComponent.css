@@ -12,11 +12,11 @@
   .background-color: red;
 }
 
-.username {
+.userName {
   font-family: 'Varela Round', sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 36px;
+  font-size: 24px;
   color: var(--main-accent-color);
 }
 
