@@ -7,16 +7,16 @@
 }
 
 .post {
-  .color: var(--background-color);
   .height: 700;
   .width: 700;
+  .background-color: red;
 }
 
 .userName {
   font-family: 'Varela Round', sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 36px;
+  font-size: 24px;
   color: var(--main-accent-color);
 }
 
@@ -24,6 +24,6 @@
   font-family: 'Varela Round', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 36px;
+  font-size: 24px;
   color: var(--main-txt-color);
 }
