@@ -26,7 +26,8 @@ class PostForm extends React.Component {
     const itemsRef = firebase.database().ref('posts');
     const post = {
       content: this.state.content,
-      username: this.props.user
+      username: this.props.user,
+      likes: 0
     }
     var onComplete = function(error) {
       if (error) {
@@ -35,7 +36,7 @@ class PostForm extends React.Component {
         console.log('Operation completed');
       }
     }
-    itemsRef.child(this.props.user).set(post, onComplete);
+    itemsRef.push(post);
     // switch back to feed view
     this.props.history.push('/feed')
   }
@@ -43,7 +44,7 @@ class PostForm extends React.Component {
   render() {
     return (
       <div className = "form">
-        <div className = "title"> 
+        <div className = "title">
                 <h1>New Post</h1>
         </div>
         <div classname = "frame">
