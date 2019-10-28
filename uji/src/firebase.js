@@ -1,5 +1,7 @@
 // src/firebase.js
-import firebase from 'firebase'
+import 'firebase/auth';
+import firebase from "firebase";
+
 const config = {
     apiKey: "AIzaSyCoR9TffQjePVhItJfaTut-3yL2T17SOSM",
     authDomain: "uji-data.firebaseapp.com",
@@ -10,5 +12,7 @@ const config = {
     appId: "1:1010678289713:web:12eff6d1fca0612292cc10",
     measurementId: "G-XHM7QBL4ZR"
 };
-firebase.initializeApp(config);
-export default firebase;
+
+const app = firebase.initializeApp(config);
+
+export default app;
