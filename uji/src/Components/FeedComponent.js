@@ -5,32 +5,37 @@ import firebase from '../firebase.js';
 class Feed extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {posts: []};
-  }
+    this.state =  {db: null,
+      loading: true};
+    }
 
-// the idea here is to add the posts from the database to the state here
+    // fetches data asynchronously from the posts database
+    componentDidMount = () => {
+      const posts = firebase.database().ref('posts');
+      posts.once("value").then(res => {
+        console.log("success", res.val())
+        if (res.val() != undefined){
+          this.setState({db: res.val(), loading: false})
+        }
+      });
+    }
 
-  // componentWillMount() {
-  //   var database = firebase.database();
-  //   database.once('value', function(snapshot) {
-  //     snapshot.forEach(function(childSnapshot) {
-  //       var childKey = childSnapshot.key;
-  //       var childData = childSnapshot.val();
-  //   // ...
-  //     });
-  //   });
-  // }
+    render() {
+      const { loading, db } = this.state;
+      // if data has not been fetched from the database,
+      // show nothing. else, create Post HTML objects from
+      // data fetched
+      return loading ? (
+        <div> </div>
+      ) : ( <div>
+        {Object.keys(this.state.db).map(key =>
+          <Post userName={this.state.db[key].username}
+          postText={this.state.db[key].content}
+          likes= {this.state.db[key].likes}
+          postId = {key}/>
+        )}
+        </div>)
+      }
+    }
 
-
-
-  render() {
-    return (
-      <div>
-          <h1>Feed</h1>
-        <Post userName={"srah"} postText={"I think this is cool!"} />
-        <Post userName={"srah"} postText={"hah help"} />
-      </div>
-    );
-  }
-}
 export default Feed;
