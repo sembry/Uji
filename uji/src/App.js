@@ -11,6 +11,7 @@ import Login from './Components/Login';
 import Feed from './Components/FeedComponent';
 import Register from './Components/Register';
 import PostForm from './Components/PostFormComponent';
+import Profile from './Components/Profile';
 import PrivateRoute from './PrivateRoute';
 import * as serviceWorker from './serviceWorker';
 import firebase from './firebase.js'
@@ -32,13 +33,13 @@ class App extends React.Component{
       if (user) {
         this.setState({
           authenticated: true,
-          currentUser: user,
+          user: user,
           loading: false
         });
       } else {
         this.setState({
           authenticated: false,
-          currentUser: null,
+          user: null,
           loading: false
         });
       }
@@ -68,11 +69,12 @@ class App extends React.Component{
           <div className="frame">
             <Router>
               <Switch>
-                <PrivateRoute exact path="/" component={Feed} authenticated={this.state.authenticated}/>
-                <Route path="/login" component={Login} />
-                <PrivateRoute exact path="/feed" component={Feed} authenticated={this.state.authenticated}/>
-                <Route path="/postform" component={PostForm}/>
-                <Route path="/register" component={Register}/>
+                <PrivateRoute exact path="/" render={() => <Feed user={this.state.user} />} authenticated={this.state.authenticated}/>
+                <Route path="/login" render={(props) => <Login {...props} />} />
+                <PrivateRoute exact path="/feed" render={() => <Feed user={this.state.user} />} authenticated={this.state.authenticated}/>
+                <Route path="/postform" render={() => <PostForm user={this.state.user} />}/>
+                <Route path="/register" render={() => <Register />} />
+                <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={this.state.authenticated}/>
               </Switch>
             </Router>
           </div>
