@@ -82,6 +82,19 @@ class App extends React.Component{
             <img width = "60px" alt="New Post Button" src={newPost}/>
           </div>
         </div>
+        <div className="frame">
+          <Router>
+            <Switch>
+              <Route path="/login" render={()=><Login setUser={this.setUser.bind(this)} />} />
+              <Route path="/feed" render={() => <Feed user={this.state.user} />} />
+              <Route path="/postform" render={() => <PostForm user={this.state.user} />} />
+              <Route path="/register" render={() => <Register setUser={this.setUser.bind(this)} />} />
+            </Switch>
+          </Router>
+        </div>
+        <div className="newPostButton">
+          <img width = "60px" alt="New Post Button" src={newPost}/>
+        </div>
       </div>
     );
   }
