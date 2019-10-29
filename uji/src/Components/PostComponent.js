@@ -9,10 +9,11 @@ class Post extends React.Component {
     return (
       <div className = "Post">
         <div className = "userName">
-           <p>{props.username}</p>
+           <p>{this.props.username}</p>
         </div>
         <div className = "postText">
-          <p>{props.postText}</p>
+          <p>{this.props.postText}</p>
+        </div>
       </div>
     );
   }
