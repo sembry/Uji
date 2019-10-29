@@ -5,6 +5,7 @@ import firebase from "../../firebase";
 import LoginView from "./LoginComponent";
 
 class LoginContainer extends Component {
+  // Use firebase's API to sign in
   handleSignIn = async event => {
     event.preventDefault();
     const { email, password } = event.target.elements;

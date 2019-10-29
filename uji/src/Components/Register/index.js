@@ -5,6 +5,7 @@ import firebase from "../../firebase";
 import RegisterView from "./RegisterComponent";
 
 class RegisterContainer extends Component {
+  // Use firebase's API to create new user
   handleSignUp = async event => {
     event.preventDefault();
     const { email, password, firstname, lastname } = event.target.elements;
