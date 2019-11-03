@@ -21,24 +21,16 @@ class Post extends React.Component {
     return (
       <div className = "Post">
         <div className = "userName">
-<<<<<<< HEAD
-           <p>{this.props.username}</p>
+          <strong>{this.props.userName}</strong>
         </div>
         <div className = "postText">
           <p>{this.props.postText}</p>
         </div>
-=======
-          <strong>{this.props.userName}</strong>
-        </div>
-        <div className = "postText">
-           <p>{this.props.postText}</p>
-         </div>
          <strong>{this.props.likes}</strong>
          <button type="button"
           onClick={this.updateLike}>
             Like
           </button>
->>>>>>> 005c13ece83651c39e513e2acf04203383d1594b
       </div>
     );
   }
