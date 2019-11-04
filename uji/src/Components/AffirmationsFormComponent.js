@@ -25,12 +25,10 @@ class AffirmationsForm extends React.Component {
   // push post to the database
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state);
     const itemsRef = firebase.database().ref('affirmations');
-    const post = {
-      content: this.state.content,
-      uid: this.props.user.uid,
-      username: this.props.user.displayName,
-      likes: 0
+    const affirmation = {
+      [this.props.user.uid]: this.state.content
     }
     var onComplete = function(error) {
       if (error) {
@@ -39,9 +37,8 @@ class AffirmationsForm extends React.Component {
         console.log('Operation completed');
       }
     }
-    itemsRef.push(post);
-    // switch back to feed view
-    this.props.history.push('/feed')
+    itemsRef.child(this.props.user.uid).set(this.state.content);
+    this.props.history.push('/affirmations')
   }
 
   render() {
@@ -55,15 +52,15 @@ class AffirmationsForm extends React.Component {
               <form onSubmit={this.handleSubmit}>
                 <h1>Question 1</h1>
                 <p> My greatest strengths are… </p>
-                <input type="text" name="q1" placeholder="Write anything" onChange={this.handleChange} value={this.state.content}/>
+                <input type="text" name="q1" placeholder="Write anything" onChange={this.handleChange} value={this.state.content["q1"]}/>
 
                 <h1>Question 2</h1>
                 <p> 2. Fill in the blank: I was proud of myself when I ______. Why? </p>
-                <input type="text" name="q2" placeholder="Write anything" onChange={this.handleChange} value={this.state.content}/>
+                <input type="text" name="q2" placeholder="Write anything" onChange={this.handleChange} value={this.state.content["q2"]}/>
 
                 <h1>Question 3</h1>
                 <p> 3. What would you do today if you had all the confidence in the world? What about in a year?</p>
-                <input type="text" name="q3" placeholder="Write anything" onChange={this.handleChange} value={this.state.content}/>
+                <input type="text" name="q3" placeholder="Write anything" onChange={this.handleChange} value={this.state.content["q3"]}/>
                 <button>Submit</button>
               </form>
           </section>
