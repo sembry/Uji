@@ -1,7 +1,7 @@
 import React from 'react';
 import '../FormStyling.css';
 import firebase from '../../firebase';
-import PostForm from '../PostFormComponent';
+import PostForm from '../PostForm/PostFormComponent';
 import setUser from '../../App';
 import { withRouter, Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import PropTypes from 'prop-types';

@@ -6,24 +6,31 @@
   --main-txt-color: black;
 }
 
-.postContainer {
+.postFormContainer {
   height: 150px;
-  width: 100%;
+  width: 400px;
   background-color: var(--background-color);
-  margin: 20px;
-  padding-top: 20px;
-  border-radius: 20px;
+  padding: 20px;
 }
 
 .userName {
+  display: flex;
+  flex-direction: 'row';
   text-align: left;
   font-family: 'Varela Round', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
-  padding-left: 20px;
   
   color: var(--main-accent-color);
+}
+
+.name {
+  width: fill;
+}
+
+.close {
+  text-align: right;
 }
 
 .postText {
@@ -32,17 +39,10 @@
   font-weight: normal;
   font-size: 24px;
   color: var(--main-txt-color);
+  text-align: center;
 }
 
-.likeContainer {
-  display: flex;
-  float: right;
-  justify-content: center;
-  padding-right: 20px;
-}
-
-.numberLikes {
-  padding-right: 10px;
-  align-content: center;
+.submitButton {
+  padding-top: 10px;
 }
 
