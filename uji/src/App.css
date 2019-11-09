@@ -3,10 +3,12 @@
 /* Universal constant colors/sizing to be used throughout */
 :root {
   --main-accent-color: #561FCC;
+  --background-color: #F5F4FF;
   --main-txt-color: black;
   --large-padding: 30px;
   --icon-size: 60px;
 }
+
 
 .Header {
   display: flex;
@@ -41,4 +43,11 @@
   position: fixed;
   bottom: var(--large-padding);
   right: var(--large-padding);
+}
+
+.dialog {
+  height: 150px;
+  background-color: var(--background-color);
+  border-radius: 20px;
+  padding: 20px;
 }

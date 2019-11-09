@@ -10,11 +10,15 @@ import './App.css';
 import Login from './Components/Login';
 import Feed from './Components/FeedComponent';
 import Register from './Components/Register';
-import PostForm from './Components/PostFormComponent';
+import PostForm from './Components/PostForm';
 import Profile from './Components/Profile';
 import PrivateRoute from './PrivateRoute';
 import * as serviceWorker from './serviceWorker';
 import firebase from './firebase.js'
+import Dialog from '@material-ui/core/Dialog';
+
+
+
 
 
 // TODO: fix SVGIcon.js to properly render icons of correct size to fix image quality issues
@@ -25,7 +29,7 @@ import firebase from './firebase.js'
 class App extends React.Component{
   constructor(props) {
     super(props);
-    this.state = { loading: true, authenticated: false, user: null };
+    this.state = { loading: true, authenticated: false, user: null, open: false };
   }
 
   componentWillMount() {
@@ -45,6 +49,14 @@ class App extends React.Component{
       }
     });
   }
+
+  handleClick = () => {
+    this.setState({open: true});
+  };
+
+  handleClose = () => {
+    this.setState({open: false});
+  };
 
 
   render() {
@@ -69,18 +81,26 @@ class App extends React.Component{
           <div className="frame">
             <Router>
               <Switch>
-                <PrivateRoute exact path="/" render={() => <Feed user={this.state.user} />} authenticated={this.state.authenticated}/>
+                <PrivateRoute exact path="/" render={() => <Feed user={this.state.user} />} authenticated={authenticated}/>
                 <Route path="/login" render={(props) => <Login {...props} />} />
-                <PrivateRoute exact path="/feed" render={() => <Feed user={this.state.user} />} authenticated={this.state.authenticated}/>
-                <Route path="/postform" render={() => <PostForm user={this.state.user} />}/>
+                <PrivateRoute exact path="/feed" render={() => <Feed user={this.state.user} />} authenticated={authenticated}/>
                 <Route path="/register" render={() => <Register />} />
-                <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={this.state.authenticated}/>
+                <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={authenticated}/>
               </Switch>
             </Router>
           </div>
           <div className="newPostButton">
-            <img width = "60px" alt="New Post Button" src={newPost}/>
+            <img width = "60px" alt="New Post Button" cursor="pointer" src={newPost} onClick={this.handleClick}/>
           </div>
+          <Dialog 
+            open={this.state.open} 
+            onClose={this.handleClose} 
+            aria-labelledby="form-dialog-title"
+            fullWidth={false}
+            maxWidth = {'md'}
+            >
+            <PostForm user={user} handleClose={this.handleClose}/>
+          </Dialog>
         </div>
       </div>
     );
