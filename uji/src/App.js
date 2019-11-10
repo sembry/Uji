@@ -7,6 +7,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import './App.css';
+import Affirmations from './Components/AffirmationsComponent'
+import AffirmationsForm from './Components/AffirmationsFormComponent'
 import Login from './Components/Login';
 import Feed from './Components/FeedComponent';
 import Register from './Components/Register';
@@ -85,7 +87,9 @@ class App extends React.Component{
                 <Route path="/login" render={(props) => <Login {...props} />} />
                 <PrivateRoute exact path="/feed" render={() => <Feed user={this.state.user} />} authenticated={authenticated}/>
                 <Route path="/register" render={() => <Register />} />
-                <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={authenticated}/>
+                <Route path="/affirmations" render={() => <Affirmations user={this.state.user}/>} />
+                <Route path="/affirmationsform" render={() => <AffirmationsForm user={this.state.user}/>} />
+                <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={this.state.authenticated}/>
               </Switch>
             </Router>
           </div>
