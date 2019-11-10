@@ -1,3 +1,7 @@
 :root {
   align-self: center;
 }
+
+.feedContainer {
+  width: 50%;
+}

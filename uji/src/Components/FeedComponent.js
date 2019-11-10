@@ -1,5 +1,6 @@
 import React from 'react';
 import Post from './PostComponent';
+import './FeedComponent.css';
 import firebase from '../firebase.js';
 
 class Feed extends React.Component {
@@ -27,7 +28,7 @@ class Feed extends React.Component {
       // data fetched
       return loading ? (
         <div> </div>
-      ) : ( <div>
+      ) : ( <div className="feedContainer">
         {Object.keys(this.state.db).map(key =>
           <Post userName={this.state.db[key].username}
           postText={this.state.db[key].content}

@@ -1,10 +1,5 @@
 import React from 'react';
 import '../FormStyling.css';
-import firebase from '../../firebase';
-import PostForm from '../PostFormComponent';
-import setUser from '../../App';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-import PropTypes from 'prop-types';
 
 const LoginView = ({ onSubmit }) => {
     return (
@@ -12,7 +7,7 @@ const LoginView = ({ onSubmit }) => {
         <div className = "title"> 
             <h1>Login</h1>
         </div>
-        <div classname = "frame">
+        <div className = "frame">
             <div className="credentials">
                 <form onSubmit={onSubmit}>
                     <input type="email" name="email" placeholder="Email" />
