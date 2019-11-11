@@ -22,6 +22,6 @@ const PostFormView = ({ onSubmit, displayName, handleClose }) => {
           </form>
         </div>
       </div>
-    );  
+    );
 }
 export default PostFormView;

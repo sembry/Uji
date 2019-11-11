@@ -6,12 +6,17 @@ import PostFormView from "./PostFormComponent";
 
 class PostFormContainer extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   // push post to the database
   handleSubmit = async event => {
     console.log('submitting');
     event.preventDefault();
     // this takes in the post content from the form
-    const { content } = event.target.elements;
+    const { content } = event.target;
+    console.log(event.target);
     const itemsRef = firebase.database().ref('posts');
     const post = {
       content: content,
@@ -26,17 +31,18 @@ class PostFormContainer extends Component {
         console.log('Operation completed');
       }
     }
+    console.log(post);
     itemsRef.push(post);
     // switch back to feed view
-    this.props.history.push('/login')
+    this.props.history.push('/feed')
   };
 
   render() {
     console.log("test1");
-    return <PostFormView 
+    return <PostFormView
               onSubmit={this.handleSubmit}
-              displayName={this.props.user.displayName} 
-              handleClose = {this.props.handleClose} 
+              displayName={this.props.user.displayName}
+              handleClose = {this.props.handleClose}
               />;
   }
 }
