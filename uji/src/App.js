@@ -15,13 +15,10 @@ import Register from './Components/Register';
 import PostForm from './Components/PostForm';
 import Profile from './Components/Profile';
 import PrivateRoute from './PrivateRoute';
+import Landing from './Components/LandingComponent'
 import * as serviceWorker from './serviceWorker';
 import firebase from './firebase.js'
 import Dialog from '@material-ui/core/Dialog';
-
-
-
-
 
 // TODO: fix SVGIcon.js to properly render icons of correct size to fix image quality issues
 // import SVGIcon from "./Assets/SVGIcon.js"
@@ -89,6 +86,7 @@ class App extends React.Component{
                 <Route path="/register" render={() => <Register />} />
                 <Route path="/affirmations" render={() => <Affirmations user={this.state.user}/>} />
                 <Route path="/affirmationsform" render={() => <AffirmationsForm user={this.state.user}/>} />
+                <Route path="/landing" render={() => <Landing user={this.state.user}/>} />
                 <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={this.state.authenticated}/>
               </Switch>
             </Router>
@@ -96,9 +94,9 @@ class App extends React.Component{
           <div className="newPostButton">
             <img width = "60px" alt="New Post Button" cursor="pointer" src={newPost} onClick={this.handleClick}/>
           </div>
-          <Dialog 
-            open={this.state.open} 
-            onClose={this.handleClose} 
+          <Dialog
+            open={this.state.open}
+            onClose={this.handleClose}
             aria-labelledby="form-dialog-title"
             fullWidth={false}
             maxWidth = {'md'}

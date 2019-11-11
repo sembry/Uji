@@ -6,7 +6,8 @@ import firebase from '../firebase.js';
 class Feed extends React.Component {
   constructor(props) {
     super(props);
-    this.state =  {db: null,
+    this.state =  {
+      db: null,
       loading: true};
     }
 
