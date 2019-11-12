@@ -17,6 +17,8 @@
   font-weight: normal;
   font-size: 24px;
   color: var(--main-txt-color);
+  box-shadow: 1px 1px 1px var(--main-shadow-color);
+
 }
 
 
