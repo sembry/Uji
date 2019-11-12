@@ -1,6 +1,6 @@
 import React from 'react';
-import './FormStyling.css';
-import firebase from '../firebase.js';
+import './AffirmationsFormComponent.css';
+import firebase from '../../firebase.js';
 import { withRouter, Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 
@@ -43,12 +43,12 @@ class AffirmationsForm extends React.Component {
 
   render() {
     return (
-      <div className = "form">
+      <div className = "affirmationsForm">
         <div className = "title">
                 <h1>Edit Affirmations</h1>
         </div>
-        <div classname = "frame">
-          <section className="credentials">
+        <div className = "affirmationsFrame">
+          <section className="prompts">
               <form onSubmit={this.handleSubmit}>
                 <h1>Question 1</h1>
                 <p> My greatest strengths are… </p>

@@ -33,6 +33,11 @@
   line-height: 56px;
 
   color: var(--main-accent-color);
+  cursor: pointer;
+}
+
+.UJI:hover {
+  color: var(--main-highlight-color);
 }
 
 .Parent {
@@ -41,9 +46,13 @@
 
 .profileButton {
   padding-right: var(--large-padding);
-  padding-top: var(--large-padding);
+  padding-top: 25px;
   color: var(--main-accent-color);
   cursor: pointer;
+}
+
+.profileButton:hover {
+  color: var(--main-highlight-color);
 }
 
 .newPostButton {
@@ -55,7 +64,7 @@
 }
 
 .newPostButton:hover {
-  color: var(--var(--main-highlight-color))
+  color: var(--main-highlight-color);
 }
 
 .dialog {

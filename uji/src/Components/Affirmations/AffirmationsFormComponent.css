@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+
+:root {
+  --background-color: #F5F4FF;
+  --main-accent-color: #561FCC;
+  --main-txt-color: black;
+}
+
+.affirmationsForm{
+  width: 100%;
+  text-align: center;
+}
+
+.affirmationsFrame {
+  width: 60%;
+  background-color: var(--background-color);
+  margin: 40px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.prompts {
+  font-family: 'Varela Round', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  color: var(--main-txt-color);
+
+}
+
+
