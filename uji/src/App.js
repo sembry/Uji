@@ -5,12 +5,12 @@ import profile from './Assets/profile60.png';
 import newPost from './Assets/newPost60.png';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
-import Affirmations from './Components/AffirmationsComponent'
-import AffirmationsForm from './Components/AffirmationsFormComponent'
+import Affirmations from './Components/Affirmations/AffirmationsComponent'
+import AffirmationsForm from './Components/Affirmations/AffirmationsFormComponent'
 import Login from './Components/Login';
-import Feed from './Components/FeedComponent';
+import Feed from './Components/Feed/FeedComponent';
 import Register from './Components/Register';
 import PostForm from './Components/PostForm';
 import Profile from './Components/Profile';
@@ -20,7 +20,10 @@ import firebase from './firebase.js'
 // Icons imported using material-ui
 import Dialog from '@material-ui/core/Dialog';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AccountCircle from './profileButton';
+import FeedButton from './feedButton';
+import ImageUpload from './ImageUpload';
+
 
 class App extends React.Component{
   constructor(props) {
@@ -64,15 +67,18 @@ class App extends React.Component{
     }
     return (
       <div className="App">
-        <div className="Parent">
-          <div className="Header">
-            <header className="UJI">
-              UJI
-            </header>
-            <AccountCircleIcon className="profileButton" style={{ fontSize: "70px" }}/>
-          </div>
-          <div className="frame">
-            <Router>
+        {/* <ImageUpload /> */}
+        <Router>
+          <div className="Parent">
+            <div className="Header">
+              <header className="UJI" >
+                <FeedButton />
+              </header>
+              <div className="profileButton" >              
+                <AccountCircle />
+              </div>
+            </div>
+            <div className="frame">
               <Switch>
                 <PrivateRoute exact path="/" render={() => <Feed user={this.state.user} />} authenticated={authenticated}/>
                 <Route path="/login" render={(props) => <Login {...props} />} />
@@ -82,19 +88,19 @@ class App extends React.Component{
                 <Route path="/affirmationsform" render={() => <AffirmationsForm user={this.state.user}/>} />
                 <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={this.state.authenticated}/>
               </Switch>
-            </Router>
+            </div>
+            <AddCircleIcon className="newPostButton" style={{ fontSize: "70px" }} onClick={this.handleClick}/>
+            <Dialog 
+              open={this.state.open} 
+              onClose={this.handleClose} 
+              aria-labelledby="form-dialog-title"
+              fullWidth={false}
+              maxWidth = {'md'}
+              >
+              <PostForm user={user} handleClose={this.handleClose}/>
+            </Dialog>
           </div>
-          <AddCircleIcon className="newPostButton" style={{ fontSize: "70px" }} onClick={this.handleClick}/>
-          <Dialog 
-            open={this.state.open} 
-            onClose={this.handleClose} 
-            aria-labelledby="form-dialog-title"
-            fullWidth={false}
-            maxWidth = {'md'}
-            >
-            <PostForm user={user} handleClose={this.handleClose}/>
-          </Dialog>
-        </div>
+        </Router>
       </div>
     );
   }

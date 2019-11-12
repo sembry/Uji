@@ -3,7 +3,7 @@ import 'firebase/auth';
 import firebase from "firebase";
 
 const config = {
-    apiKey: "secret-key",
+    apiKey: "AIzaSyCoR9TffQjePVhItJfaTut-3yL2T17SOSM",
     authDomain: "uji-data.firebaseapp.com",
     databaseURL: "https://uji-data.firebaseio.com",
     projectId: "uji-data",

@@ -1,7 +1,7 @@
 import React from 'react';
 import './PostComponent.css'
-import firebase from '../firebase.js';
-import { withRouter, Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import firebase from '../../firebase.js';
+import { withRouter, BrowserRouter as Router } from 'react-router-dom'
 import Interactable from 'react-interactable/noNative'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 

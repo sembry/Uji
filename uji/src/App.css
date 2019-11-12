@@ -3,7 +3,8 @@
 /* Universal constant colors/sizing to be used throughout */
 :root {
   --main-accent-color: #561FCC;
-  --main-highlight-color: #8C18F8;
+  --main-highlight-color: rgb(136, 92, 177);
+  /* --main-highlight-color: #7856c7; */
   --background-color: #F5F4FF;
   --main-txt-color: black;
   --large-padding: 30px;
@@ -33,6 +34,11 @@
   line-height: 56px;
 
   color: var(--main-accent-color);
+  cursor: pointer;
+}
+
+.UJI:hover {
+  color: var(--main-highlight-color);
 }
 
 .Parent {
@@ -41,9 +47,13 @@
 
 .profileButton {
   padding-right: var(--large-padding);
-  padding-top: var(--large-padding);
+  padding-top: 25px;
   color: var(--main-accent-color);
   cursor: pointer;
+}
+
+.profileButton:hover {
+  color: var(--main-highlight-color);
 }
 
 .newPostButton {
@@ -55,7 +65,7 @@
 }
 
 .newPostButton:hover {
-  color: var(--var(--main-highlight-color))
+  color: var(--main-highlight-color);
 }
 
 .dialog {

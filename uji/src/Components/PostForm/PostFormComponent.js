@@ -15,7 +15,7 @@ const PostFormView = ({ onSubmit, displayName, handleClose }) => {
         </div>
         <div className = "postText">
           <form onSubmit={onSubmit}>
-            <TextField type="text" name="content" placeholder="Write anything" />
+            <TextField className = "textInput" type="text" name="content" placeholder="Write anything" />
             <div className="submitButton">
               <button>Submit</button>
             </div>
