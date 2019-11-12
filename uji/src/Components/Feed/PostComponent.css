@@ -4,6 +4,7 @@
   --background-color: #F5F4FF;
   --main-accent-color: #561FCC;
   --main-txt-color: black;
+  --main-shadow-color: rgb(126, 117, 138);
 }
 
 .postContainer {
@@ -13,6 +14,7 @@
   margin: 20px;
   padding-top: 20px;
   border-radius: 20px;
+  box-shadow: 1px 1px 1px var(--main-shadow-color);
 }
 
 .userName {

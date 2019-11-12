@@ -5,10 +5,12 @@
   "dependencies": {
     "@material-ui/core": "^4.5.2",
     "@material-ui/icons": "^4.5.1",
+    "animate.css": "^3.7.2",
     "animated": "^0.2.2",
     "cloc": "^2.5.0",
     "firebase": "^7.0.0",
     "react": "^16.9.0",
+    "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.9.0",
     "react-interactable": "^0.6.4",
     "react-native-interactable": "^1.0.0",

@@ -5,7 +5,7 @@ import profile from './Assets/profile60.png';
 import newPost from './Assets/newPost60.png';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import Affirmations from './Components/Affirmations/AffirmationsComponent'
 import AffirmationsForm from './Components/Affirmations/AffirmationsFormComponent'
@@ -22,6 +22,9 @@ import Dialog from '@material-ui/core/Dialog';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import AccountCircle from './profileButton';
 import FeedButton from './feedButton';
+import ImageUpload from './ImageUpload';
+
+
 class App extends React.Component{
   constructor(props) {
     super(props);
@@ -64,6 +67,7 @@ class App extends React.Component{
     }
     return (
       <div className="App">
+        {/* <ImageUpload /> */}
         <Router>
           <div className="Parent">
             <div className="Header">

@@ -1,8 +1,13 @@
 import React from 'react';
+import { link } from 'react';
 import Post from './PostComponent';
 import './FeedComponent.css';
 import firebase from '../../firebase.js';
-import {ScrollView} from 'react';
+import "animate.css/animate.min.css";
+// Uses the scroll animation library to animate on scroll
+// https://www.npmjs.com/package/react-animate-on-scroll
+import ScrollAnimation from 'react-animate-on-scroll';
+
 
 class Feed extends React.Component {
   constructor(props) {
@@ -27,19 +32,23 @@ class Feed extends React.Component {
       // if data has not been fetched from the database,
       // show nothing. else, create Post HTML objects from
       // data fetched
-      return loading ? (
-        <div> </div>
-      ) : ( <div style={{ height: '100%', overflowY: 'hidden'}} className="feedContainer">
-          <div className="affirmationTitle"> My Feed </div>
-          <div style={{ height: '100%', overflowY: 'auto'}}>
-            {Object.keys(this.state.db).map(key =>
-              <Post userName={this.state.db[key].username}
-              postText={this.state.db[key].content}
-              likes= {this.state.db[key].likes}
-              postId = {key}/>
-            )}
+      return (
+        (loading ? (
+          <div> </div>
+        ) : ( 
+          <div style={{ height: '100%' }} className="feedContainer">
+            <div className="affirmationTitle"> My Feed </div>
+                {Object.keys(db).map(key =>
+                  <ScrollAnimation animateIn='fadeIn'>
+                    <Post userName={db[key].username}
+                    postText={db[key].content}
+                    likes= {db[key].likes}
+                    postId = {key}/>
+                  </ScrollAnimation>
+                )}
           </div>
-        </div>)
+          ))
+        )
       }
     }
 
