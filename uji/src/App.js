@@ -17,16 +17,10 @@ import Profile from './Components/Profile';
 import PrivateRoute from './PrivateRoute';
 import * as serviceWorker from './serviceWorker';
 import firebase from './firebase.js'
+// Icons imported using material-ui
 import Dialog from '@material-ui/core/Dialog';
-
-
-
-
-
-// TODO: fix SVGIcon.js to properly render icons of correct size to fix image quality issues
-// import SVGIcon from "./Assets/SVGIcon.js"
-// to use SVGIcon, <SVGIcon name = "profile" width = {60}/>
-
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 class App extends React.Component{
   constructor(props) {
@@ -75,10 +69,7 @@ class App extends React.Component{
             <header className="UJI">
               UJI
             </header>
-            <h2> User: {user ? user.displayName : null} </h2>
-            <div className = "profileButton">
-              <img width = "60px" alt="Profile Button" src={profile}/>
-            </div>
+            <AccountCircleIcon className="profileButton" style={{ fontSize: "70px" }}/>
           </div>
           <div className="frame">
             <Router>
@@ -93,9 +84,7 @@ class App extends React.Component{
               </Switch>
             </Router>
           </div>
-          <div className="newPostButton">
-            <img width = "60px" alt="New Post Button" cursor="pointer" src={newPost} onClick={this.handleClick}/>
-          </div>
+          <AddCircleIcon className="newPostButton" style={{ fontSize: "70px" }} onClick={this.handleClick}/>
           <Dialog 
             open={this.state.open} 
             onClose={this.handleClose} 

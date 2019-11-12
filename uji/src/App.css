@@ -3,6 +3,7 @@
 /* Universal constant colors/sizing to be used throughout */
 :root {
   --main-accent-color: #561FCC;
+  --main-highlight-color: #8C18F8;
   --background-color: #F5F4FF;
   --main-txt-color: black;
   --large-padding: 30px;
@@ -34,15 +35,27 @@
   color: var(--main-accent-color);
 }
 
+.Parent {
+  overflow: hidden;
+}
+
 .profileButton {
   padding-right: var(--large-padding);
   padding-top: var(--large-padding);
+  color: var(--main-accent-color);
+  cursor: pointer;
 }
 
 .newPostButton {
   position: fixed;
   bottom: var(--large-padding);
   right: var(--large-padding);
+  color: var(--main-accent-color);
+  cursor: pointer;
+}
+
+.newPostButton:hover {
+  color: var(--var(--main-highlight-color))
 }
 
 .dialog {
@@ -51,3 +64,5 @@
   border-radius: 20px;
   padding: 20px;
 }
+
+

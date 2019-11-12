@@ -2,6 +2,7 @@ import React from 'react';
 import Post from './PostComponent';
 import './FeedComponent.css';
 import firebase from '../firebase.js';
+import {ScrollView} from 'react';
 
 class Feed extends React.Component {
   constructor(props) {
@@ -28,13 +29,15 @@ class Feed extends React.Component {
       // data fetched
       return loading ? (
         <div> </div>
-      ) : ( <div className="feedContainer">
-        {Object.keys(this.state.db).map(key =>
-          <Post userName={this.state.db[key].username}
-          postText={this.state.db[key].content}
-          likes= {this.state.db[key].likes}
-          postId = {key}/>
-        )}
+      ) : ( <div style={{ height: '100%', overflowY: 'hidden'}} className="feedContainer">
+          <div style={{ height: '100%', overflowY: 'auto', paddingRight: 20}}>
+            {Object.keys(this.state.db).map(key =>
+              <Post userName={this.state.db[key].username}
+              postText={this.state.db[key].content}
+              likes= {this.state.db[key].likes}
+              postId = {key}/>
+            )}
+          </div>
         </div>)
       }
     }
