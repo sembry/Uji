@@ -45,6 +45,7 @@ class PostFormContainer extends Component {
         console.log('Operation completed');
       }
     }
+    console.log(post);
     itemsRef.push(post);
     // switch back to feed view
     // need to pass props from router component
