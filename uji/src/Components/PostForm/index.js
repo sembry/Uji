@@ -47,6 +47,7 @@ class PostFormContainer extends Component {
     }
     itemsRef.push(post);
     // switch back to feed view
+    // need to pass props from router component
     //this.props.history.push('/feed')
   };
 
