@@ -15,9 +15,8 @@ class Post extends React.Component {
 
   updateLike = (e) => {
     firebase.database().ref().child('/posts/' + this.props.postId)
-        .update({likes: this.props.likes +1});
-    this.setState({likes: this.props.likes+1})
-    this.props.history.push("/feed");
+        .update({likes: this.state.likes +1});
+    this.setState({likes: this.state.likes+1})
   }
 
   render() {
@@ -47,14 +46,14 @@ class Post extends React.Component {
             </div>
             <div className = "likeContainer">
               <strong className = "numberLikes">{this.state.likes}</strong>
-              <ThumbUpIcon 
-                style = {styles} 
+              <ThumbUpIcon
+                style = {styles}
                 onClick={this.updateLike}
                 />
             </div>
           </div>
       </Interactable.View>
-      
+
     );
   }
 }

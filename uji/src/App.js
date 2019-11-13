@@ -15,6 +15,7 @@ import Register from './Components/Register';
 import PostForm from './Components/PostForm';
 import Profile from './Components/Profile';
 import PrivateRoute from './PrivateRoute';
+import Landing from './Components/LandingComponent'
 import * as serviceWorker from './serviceWorker';
 import firebase from './firebase.js'
 // Icons imported using material-ui
@@ -74,7 +75,7 @@ class App extends React.Component{
               <header className="UJI" >
                 <FeedButton />
               </header>
-              <div className="profileButton" >              
+              <div className="profileButton" >
                 <AccountCircle />
               </div>
             </div>
@@ -86,13 +87,14 @@ class App extends React.Component{
                 <Route path="/register" render={() => <Register />} />
                 <Route path="/affirmations" render={() => <Affirmations user={this.state.user}/>} />
                 <Route path="/affirmationsform" render={() => <AffirmationsForm user={this.state.user}/>} />
+                <Route path="/landing" render={() => <Landing user={this.state.user}/>} />
                 <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={this.state.authenticated}/>
               </Switch>
             </div>
             <AddCircleIcon className="newPostButton" style={{ fontSize: "70px" }} onClick={this.handleClick}/>
-            <Dialog 
-              open={this.state.open} 
-              onClose={this.handleClose} 
+            <Dialog
+              open={this.state.open}
+              onClose={this.handleClose}
               aria-labelledby="form-dialog-title"
               fullWidth={false}
               maxWidth = {'md'}

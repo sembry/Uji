@@ -4,7 +4,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import TextField from '@material-ui/core/TextField';
 
 
-const PostFormView = ({ onSubmit, displayName, handleClose }) => {
+const PostFormView = ({ onSubmit, displayName, handleClose, checkboxValue, handleChange}) => {
     return (
       <div className = "postFormContainer">
         <div className = "userName">
@@ -15,7 +15,14 @@ const PostFormView = ({ onSubmit, displayName, handleClose }) => {
         </div>
         <div className = "postText">
           <form onSubmit={onSubmit}>
+<<<<<<< HEAD
             <TextField className = "textInput" type="text" name="content" placeholder="Write anything" />
+=======
+            <TextField type="text" name="content" placeholder="Write anything" />
+            <input type="checkbox" name="anon" value={checkboxValue}
+            onChange={handleChange}/>
+            <p class="checkbox-text">Post anonymously </p>
+>>>>>>> nancy-p2-3
             <div className="submitButton">
               <button>Submit</button>
             </div>

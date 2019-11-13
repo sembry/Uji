@@ -37,7 +37,7 @@ class AffirmationsForm extends React.Component {
         console.log('Operation completed');
       }
     }
-    itemsRef.child(this.props.user.uid).set(this.state.content);
+    itemsRef.child(this.props.user.uid).setn(this.state.content);
     this.props.history.push('/affirmations')
   }
 

@@ -7,7 +7,7 @@
   --main-highlight-color: rgb(136, 92, 177);}
 
 .postFormContainer {
-  height: 150px;
+  height: 200px;
   width: 400px;
   background-color: var(--background-color);
   padding: 20px;
@@ -25,7 +25,7 @@
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
-  
+
   color: var(--main-accent-color);
 }
 
@@ -51,4 +51,3 @@
 .submitButton {
   padding-top: 20px;
 }
-
