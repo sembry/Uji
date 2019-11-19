@@ -50,7 +50,7 @@ class Affirmations extends React.Component {
         ) : (
           <div>Loading affirmations...</div>
         )
-      ) 
+      )
     }
   }
 
