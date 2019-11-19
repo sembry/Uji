@@ -12,20 +12,20 @@
 }
 
 .affirmationsFrame {
-  width: 60%;
+  align-self: center;
   background-color: var(--background-color);
-  margin: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 20px;
   padding: 20px;
   border-radius: 20px;
 }
 
 .prompts {
+  align-content: center;
   font-family: 'Varela Round', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   color: var(--main-txt-color);
-
 }
-
-
