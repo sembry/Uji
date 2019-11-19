@@ -16,9 +16,11 @@ const PostFormView = ({ onSubmit, displayName, handleClose, checkboxValue, handl
         <div className = "postText">
           <form onSubmit={onSubmit}>
             <TextField type="text" name="content" placeholder="Write anything" />
-            <input type="checkbox" name="anon" value={checkboxValue}
-            onChange={handleChange}/>
-            <p class="checkbox-text">Post anonymously </p>
+            <div className = "anonymousCheck">
+              <input type="checkbox" name="anon" value={checkboxValue}
+                onChange={handleChange}/>
+                <p class="checkbox-text">Post anonymously </p>
+            </div>
             <div className="submitButton">
               <button>Submit</button>
             </div>
