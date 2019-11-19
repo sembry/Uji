@@ -47,9 +47,16 @@ class PostFormContainer extends Component {
     }
     console.log(post);
     itemsRef.push(post);
-    // switch back to feed view
-    // need to pass props from router component
-    //this.props.history.push('/feed')
+
+    // closes form after submit is clicked
+    /*
+      TODO: determine a less hacky way to accomplish this
+      comments from before:
+          switch back to feed view
+          need to pass props from router component
+          this.props.history.push('/feed') (gives us an error)
+    */
+    this.props.handleClose();
   };
 
   render() {

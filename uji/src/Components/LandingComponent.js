@@ -18,8 +18,8 @@ class Landing extends React.Component {
 
     return (
     <div>
-    <div class="hero-image">
-      <div class="hero-text">
+    <div class="image">
+      <div class="text">
         <h1>Welcome to UJI!</h1>
         <p>UJI is an empowering community for women
         where they can share their accomplishments and become more confident
