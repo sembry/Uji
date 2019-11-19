@@ -99,8 +99,8 @@ class App extends React.Component{
                 <Route path="/login" render={(props) => <Login {...props} />} />
                 <PrivateRoute exact path="/feed" render={() => <Feed user={this.state.user} />} authenticated={authenticated}/>
                 <Route path="/register" render={() => <Register />} />
-                <PrivateRoute path="/affirmations" render={() => <Affirmations user={this.state.user}/>} />
-                <PrivateRoute path="/affirmationsform" render={() => <AffirmationsForm user={this.state.user}/>} />
+                <PrivateRoute path="/affirmations" render={() => <Affirmations user={this.state.user}/>} authenticated={authenticated}/>
+                <PrivateRoute path="/affirmationsform" render={() => <AffirmationsForm user={this.state.user}/>} authenticated={authenticated}/>
                 <Route path="/landing" render={() => <Landing user={this.state.user}/>} />
                 <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={authenticated}/>
               </Switch>
