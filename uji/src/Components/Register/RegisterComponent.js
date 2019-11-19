@@ -9,7 +9,9 @@ import PropTypes from 'prop-types';
 const RegisterView = ({ onSubmit }) => {
   return (
       <div className = "register">
-      <h1>Register</h1>
+        <div className = "title">
+          <h1>Register</h1>
+        </div>
       <section className="credentials">
           <form onSubmit={onSubmit}>
             <input type="text" name="firstname" placeholder="First name" />
