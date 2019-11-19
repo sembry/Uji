@@ -25,7 +25,6 @@ class AffirmationsForm extends React.Component {
   // push post to the database
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     const itemsRef = firebase.database().ref('affirmations');
     const affirmation = {
       [this.props.user.uid]: this.state.content
@@ -37,7 +36,7 @@ class AffirmationsForm extends React.Component {
         console.log('Operation completed');
       }
     }
-    itemsRef.child(this.props.user.uid).setn(this.state.content);
+    itemsRef.child(this.props.user.uid).set(this.state.content);
     this.props.history.push('/affirmations')
   }
 
