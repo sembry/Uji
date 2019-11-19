@@ -4,13 +4,15 @@ import firebase from '../../firebase.js';
 import { withRouter, BrowserRouter as Router } from 'react-router-dom'
 import Interactable from 'react-interactable/noNative'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
-
+import ComplimentsForm from '../ComplimentsForm/ComplimentsFormComponent'
+import Dialog from '@material-ui/core/Dialog';
 
 class Post extends React.Component {
   constructor(props) {
     super(props);
     this.updateLike = this.updateLike.bind(this);
-    this.state = { likes: this.props.likes };
+    this.state = { likes: this.props.likes,
+                   open: false };
   }
 
   updateLike = (e) => {
@@ -18,6 +20,14 @@ class Post extends React.Component {
         .update({likes: this.state.likes +1});
     this.setState({likes: this.state.likes+1})
   }
+
+  handleClick = () => {
+    this.setState({open: true});
+  };
+
+  handleClose = () => {
+    this.setState({open: false});
+  };
 
   render() {
     const styles = {
@@ -40,6 +50,16 @@ class Post extends React.Component {
           <div className = "postContainer">
             <div className = "userName">
               <strong>{this.props.userName}</strong>
+              <button type="button" onClick={this.handleClick}>Send Compliment</button>
+              <Dialog
+                open={this.state.open}
+                onClose={this.handleClose}
+                aria-labelledby="form-dialog-title"
+                fullWidth={false}
+                maxWidth = {'md'}
+                >
+                <ComplimentsForm handleClose={this.handleClose}/>
+              </Dialog>
             </div>
             <div className = "postText">
               <p>{this.props.postText}</p>
