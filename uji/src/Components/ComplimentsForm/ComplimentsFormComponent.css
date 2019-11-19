@@ -4,28 +4,38 @@
   --background-color: #F5F4FF;
   --main-accent-color: #561FCC;
   --main-txt-color: black;
-  --main-shadow-color: rgb(126, 117, 138);
+  --main-highlight-color: rgb(136, 92, 177);}
+
+.postFormContainer {
+  height: 200px;
+  width: 400px;
+  background-color: var(--background-color);
+  padding: 20px;
 }
 
-.postContainer {
-  height: 150px;
-  width: 100%;
-  background-color: var(--background-color);
-  margin: 20px;
-  padding-top: 20px;
-  border-radius: 20px;
-  box-shadow: 1px 1px 1px var(--main-shadow-color);
+.textInput {
+  width: 70%;
 }
 
 .userName {
+  display: flex;
+  flex-direction: 'row';
   text-align: left;
   font-family: 'Varela Round', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
-  padding-left: 20px;
 
   color: var(--main-accent-color);
+}
+
+.name {
+  width: fill;
+}
+
+.close {
+  text-align: right;
+  cursor: pointer;
 }
 
 .postText {
@@ -34,23 +44,10 @@
   font-weight: normal;
   font-size: 24px;
   color: var(--main-txt-color);
+  text-align: center;
+  margin-top: 15px;
 }
 
-.likeContainer {
-  display: flex;
-  float: right;
-  justify-content: center;
-  padding-right: 20px;
-}
-
-.numberLikes {
-  padding-right: 10px;
-  align-content: center;
-}
-
-.dialog {
-  height: 150px;
-  background-color: var(--background-color);
-  border-radius: 20px;
-  padding: 20px;
+.submitButton {
+  padding-top: 20px;
 }
