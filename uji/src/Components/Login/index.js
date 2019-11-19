@@ -8,7 +8,7 @@ class LoginContainer extends Component {
   // Use firebase's API to sign in
   handleSignIn = async event => {
     event.preventDefault();
-    const { email, password } = event.target.input;
+    const { email, password } = event.target.elements;
     try {
       const user = await firebase
         .auth()

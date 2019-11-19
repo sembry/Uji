@@ -58,6 +58,20 @@ class App extends React.Component{
     this.setState({open: false});
   };
 
+  logout = () => {
+    firebase.auth().signOut()
+      .then(function() {
+        // Sign-out successful.
+        this.setState({
+          authenticated: false,
+          user: null,
+          loading: false
+        });
+      })
+      .catch(function(error) {
+        // An error happened
+      });
+  }
 
   render() {
     const { authenticated, loading } = this.state;
@@ -81,16 +95,17 @@ class App extends React.Component{
             </div>
             <div className="frame">
               <Switch>
-                <PrivateRoute exact path="/" render={() => <Feed user={this.state.user} />} authenticated={authenticated}/>
+                <PrivateRoute exact path="/" render={() => <Feed user={this.state.user}/>} authenticated={authenticated}/>
                 <Route path="/login" render={(props) => <Login {...props} />} />
                 <PrivateRoute exact path="/feed" render={() => <Feed user={this.state.user} />} authenticated={authenticated}/>
                 <Route path="/register" render={() => <Register />} />
-                <Route path="/affirmations" render={() => <Affirmations user={this.state.user}/>} />
-                <Route path="/affirmationsform" render={() => <AffirmationsForm user={this.state.user}/>} />
+                <PrivateRoute path="/affirmations" render={() => <Affirmations user={this.state.user}/>} authenticated={authenticated}/>
+                <PrivateRoute path="/affirmationsform" render={() => <AffirmationsForm user={this.state.user}/>} authenticated={authenticated}/>
                 <Route path="/landing" render={() => <Landing user={this.state.user}/>} />
-                <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={this.state.authenticated}/>
+                <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={authenticated}/>
               </Switch>
             </div>
+            <button type="button" onClick={this.logout}>Logout</button>
             <AddCircleIcon className="newPostButton" style={{ fontSize: "70px" }} onClick={this.handleClick}/>
             <Dialog
               open={this.state.open}
