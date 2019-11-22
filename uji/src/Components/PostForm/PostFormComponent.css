@@ -7,7 +7,7 @@
   --main-highlight-color: rgb(136, 92, 177);}
 
 .postFormContainer {
-  height: 200px;
+  height: 250px;
   width: 400px;
   background-color: var(--background-color);
   padding: 20px;
@@ -53,5 +53,5 @@
 }
 
 .anonymousCheck {
-  
+
 }
