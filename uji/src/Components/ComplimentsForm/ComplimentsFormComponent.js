@@ -4,11 +4,11 @@ import CloseIcon from '@material-ui/icons/Close';
 import TextField from '@material-ui/core/TextField';
 
 
-const ComplimentsFormView = ({ onSubmit, displayName, handleClose, checkboxValue, handleChange}) => {
+const ComplimentsFormView = ({ onSubmit, handleClose, complimentReceiver } ) => {
     return (
       <div className = "complimentsFormContainer">
         <div className = "userName">
-          <strong className = "name">{displayName}</strong>
+          <strong className = "name">To: {complimentReceiver}</strong>
           <div className = "close">
             <CloseIcon onClick={handleClose}/>
           </div>
