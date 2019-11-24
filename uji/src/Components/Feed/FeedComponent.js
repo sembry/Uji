@@ -20,7 +20,6 @@ class Feed extends React.Component {
     componentDidMount = () => {
       const posts = firebase.database().ref('posts');
       posts.once("value").then(res => {
-        console.log("success", res.val())
         if (res.val() != undefined){
           this.setState({db: res.val(), loading: false})
         }
@@ -40,10 +39,11 @@ class Feed extends React.Component {
             <div className="affirmationTitle"> My Feed </div>
                 {Object.keys(db).reverse().map(key =>
                   <ScrollAnimation animateIn='fadeIn'>
-                    <Post userName={db[key].username}
+                    <Post postUserName={db[key].username}
                     postText={db[key].content}
                     likes= {db[key].likes}
-                    postId = {key}/>
+                    postId = {key}
+                    user = {this.props.user} />
                   </ScrollAnimation>
                 )}
           </div>

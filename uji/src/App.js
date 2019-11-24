@@ -11,6 +11,7 @@ import Affirmations from './Components/Affirmations/AffirmationsComponent'
 import AffirmationsForm from './Components/Affirmations/AffirmationsFormComponent'
 import Login from './Components/Login';
 import Feed from './Components/Feed/FeedComponent';
+import MyPage from './Components/MyPageComponent';
 import Register from './Components/Register';
 import PostForm from './Components/PostForm';
 import Profile from './Components/Profile';
@@ -99,7 +100,7 @@ class App extends React.Component{
                 <Route path="/login" render={(props) => <Login {...props} />} />
                 <PrivateRoute exact path="/feed" render={() => <Feed user={this.state.user} />} authenticated={authenticated}/>
                 <Route path="/register" render={() => <Register />} />
-                <PrivateRoute exact path="/affirmations" render={() => <Affirmations user={this.state.user}/>} authenticated={authenticated}/>
+                <PrivateRoute exact path="/affirmations" render={() => <MyPage user={this.state.user}/>} authenticated={authenticated}/>
                 <PrivateRoute exact path="/affirmationsform" render={() => <AffirmationsForm user={this.state.user}/>} authenticated={authenticated}/>
                 <Route path="/landing" render={() => <Landing user={this.state.user}/>} />
                 <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={authenticated}/>
