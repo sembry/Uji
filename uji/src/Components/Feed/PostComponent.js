@@ -4,7 +4,7 @@ import firebase from '../../firebase.js';
 import { withRouter, BrowserRouter as Router } from 'react-router-dom'
 import Interactable from 'react-interactable/noNative'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
-import ComplimentsForm from '../ComplimentsForm/ComplimentsFormComponent'
+import ComplimentsForm from '../ComplimentsForm/'
 import Dialog from '@material-ui/core/Dialog';
 
 class Post extends React.Component {
@@ -49,7 +49,7 @@ class Post extends React.Component {
           gravityPoints={[{x: 0, y: 0, strength: 1000, falloff: 500, damping: 0.5}]}>
           <div className = "postContainer">
             <div className = "userName">
-              <strong>{this.props.userName}</strong>
+              <strong>{this.props.postUserName}</strong>
               <button type="button" onClick={this.handleClick}>Send Compliment</button>
               <Dialog
                 open={this.state.open}
@@ -58,7 +58,9 @@ class Post extends React.Component {
                 fullWidth={false}
                 maxWidth = {'md'}
                 >
-                <ComplimentsForm handleClose={this.handleClose}/>
+                <ComplimentsForm postUserName={this.props.postUserName}
+                  user ={this.props.user}
+                  handleClose={this.handleClose}/>
               </Dialog>
             </div>
             <div className = "postText">

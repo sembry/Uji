@@ -7,7 +7,6 @@ import PostFormView from "./PostFormComponent";
 class PostFormContainer extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       checkboxValue : 0
     }
@@ -34,8 +33,8 @@ class PostFormContainer extends Component {
     }
     const post = {
       content: content.value,
-      uid: this.props.user.uid,
       username: displayName,
+      userID: this.props.user.uid,
       likes: 0
     }
     var onComplete = function(error) {
@@ -63,6 +62,7 @@ class PostFormContainer extends Component {
     return <PostFormView
               onSubmit={this.handleSubmit}
               displayName={this.props.user.displayName}
+              userID={this.props.user.uid}
               handleClose = {this.props.handleClose}
               checkboxValue = {this.state.checkboxValue}
               handleChange = {this.handleChange}
