@@ -107,7 +107,7 @@ class App extends React.Component{
                   <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={authenticated}/>
                 </Switch>
               </div>
-              <button type="button" onClick={this.logout}>Logout</button>
+              <button className = "logout" type="button" onClick={this.logout}>Logout</button>
               <AddCircleIcon className="newPostButton" style={{ fontSize: "70px" }} onClick={this.handleClick}/>
               <Dialog
                 open={this.state.open}

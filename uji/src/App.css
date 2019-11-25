@@ -72,6 +72,18 @@
   padding: 20px;
 }
 
+.logout {
+  position: fixed;
+  bottom: var(--large-padding);
+  left: var(--large-padding);
+  color: white;
+  cursor: pointer;
+}
+
+.logout:hover {
+  color: var(--main-highlight-color);
+}
+
 @keyframes FadeAnim {
   75% {
      opacity: 0;
