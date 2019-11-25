@@ -38,13 +38,13 @@ class Feed extends React.Component {
           <div style={{ height: '100%' }} className="feedContainer">
             <div className="affirmationTitle"> My Feed </div>
                 {Object.keys(db).reverse().map(key =>
-                  <ScrollAnimation animateIn='fadeIn'>
+                  //<ScrollAnimation animateIn='fadeIn'>
                     <Post postUserName={db[key].username}
                     postText={db[key].content}
                     likes= {db[key].likes}
                     postId = {key}
                     user = {this.props.user} />
-                  </ScrollAnimation>
+                  //</ScrollAnimation>
                 )}
           </div>
           ))
