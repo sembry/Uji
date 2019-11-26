@@ -7,14 +7,10 @@
   --main-highlight-color: rgb(136, 92, 177);}
 
 .postFormContainer {
-  height: 200px;
+  height: 250px;
   width: 400px;
   background-color: var(--background-color);
   padding: 20px;
-}
-
-.textInput {
-  width: 70%;
 }
 
 .userName {
@@ -48,10 +44,32 @@
   margin-top: 15px;
 }
 
+.textField {
+  width: 300px;
+}
+
 .submitButton {
   padding-top: 20px;
 }
 
 .anonymousCheck {
-  
+  margin-top: 20px;
+  bottom: 20px;
+  margin-right: 20px;
+}
+
+.checkbox-text {
+  display: inline-block;
+  font-size: 15px;
+  bottom: 20px;
+}
+
+.complimentButton {
+  position: absolute;
+  right: 25px;
+}
+
+input[type = "checkbox"] {
+  margin-right: 25px;
+  display: inline-block;
 }

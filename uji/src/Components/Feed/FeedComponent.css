@@ -3,6 +3,8 @@
 }
 
 .feedContainer {
+  margin-top: 60px;
   width: 50%;
   overflow: 'scroll';
+  margin-bottom: 20px;
 }

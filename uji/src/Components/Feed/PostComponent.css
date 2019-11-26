@@ -8,10 +8,11 @@
 }
 
 .postContainer {
-  height: 150px;
-  width: 100%;
+  position: relative;
+  height: auto;
+  width: 500px;
   background-color: var(--background-color);
-  margin: 20px;
+  margin: 20px auto;
   padding-top: 20px;
   border-radius: 20px;
   box-shadow: 1px 1px 1px var(--main-shadow-color);
@@ -24,7 +25,6 @@
   font-weight: bold;
   font-size: 24px;
   padding-left: 20px;
-
   color: var(--main-accent-color);
 }
 
@@ -33,17 +33,24 @@
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
+  width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
+  word-wrap: break-word;
   color: var(--main-txt-color);
 }
 
 .likeContainer {
+  position: relative;
   display: flex;
   float: right;
   justify-content: center;
   padding-right: 20px;
+  bottom: 10px;
 }
 
 .numberLikes {
+  position: relative;
   padding-right: 10px;
   align-content: center;
 }

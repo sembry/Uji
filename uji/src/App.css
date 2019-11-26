@@ -18,10 +18,8 @@
   justify-content: space-between;
 }
 
-
-
-
 .UJI {
+  position: fixed;
   padding-top: var(--large-padding);
   padding-left: var(--large-padding);
   width: 90px;
@@ -46,7 +44,8 @@
 }
 
 .profileButton {
-  padding-right: var(--large-padding);
+  position: fixed;
+  right: var(--large-padding);
   padding-top: 25px;
   color: var(--main-accent-color);
   cursor: pointer;
@@ -75,4 +74,33 @@
   padding: 20px;
 }
 
+.logout {
+  position: fixed;
+  bottom: var(--large-padding);
+  left: var(--large-padding);
+  color: white;
+  cursor: pointer;
+}
 
+.logout:hover {
+  color: var(--main-highlight-color);
+}
+
+.Fade {
+  animation: FadeAnim;
+  animation-duration: 2s;
+  animation-delay: 0.1s;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes FadeAnim {
+  0% {
+   opacity: 0;
+  }
+
+ 100% {
+   opacity: 1;
+  }
+}

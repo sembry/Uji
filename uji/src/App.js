@@ -78,47 +78,46 @@ class App extends React.Component{
     const { authenticated, loading } = this.state;
     var user = firebase.auth().currentUser;
 
-    if (loading) {
-      return <p>Loading...</p>;
-    }
     return (
-      <div className="App">
-        {/* <ImageUpload /> */}
-        <Router>
-          <div className="Parent">
-            <div className="Header">
-              <header className="UJI" >
-                <FeedButton />
-              </header>
-              <div className="profileButton" >
-                <AccountCircle />
+      <div class="App Fade">
+        <div className="App">
+          {/* <ImageUpload /> */}
+          <Router>
+            <div className="Parent">
+              <div className="Header">
+                <header className="UJI" >
+                  <FeedButton />
+                </header>
+                <div className="profileButton" >
+                  <AccountCircle />
+                </div>
               </div>
+              <div className="frame">
+                <Switch>
+                  <PrivateRoute exact path="/" render={() => <Feed user={this.state.user}/>} authenticated={authenticated}/>
+                  <Route path="/login" render={(props) => <Login {...props} />} />
+                  <PrivateRoute exact path="/feed" render={() => <Feed user={this.state.user} />} authenticated={authenticated}/>
+                  <Route path="/register" render={() => <Register />} />
+                  <PrivateRoute exact path="/affirmations" render={() => <MyPage user={this.state.user}/>} authenticated={authenticated}/>
+                  <PrivateRoute exact path="/affirmationsform" render={() => <AffirmationsForm user={this.state.user}/>} authenticated={authenticated}/>
+                  <Route path="/landing" render={() => <Landing user={this.state.user}/>} />
+                  <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={authenticated}/>
+                </Switch>
+              </div>
+              <button className = "logout" type="button" onClick={this.logout}>Logout</button>
+              <AddCircleIcon className="newPostButton" style={{ fontSize: "70px" }} onClick={this.handleClick}/>
+              <Dialog
+                open={this.state.open}
+                onClose={this.handleClose}
+                aria-labelledby="form-dialog-title"
+                fullWidth={false}
+                maxWidth = {'md'}
+                >
+                <PostForm user={user} handleClose={this.handleClose}/>
+              </Dialog>
             </div>
-            <div className="frame">
-              <Switch>
-                <PrivateRoute exact path="/" render={() => <Feed user={this.state.user}/>} authenticated={authenticated}/>
-                <Route path="/login" render={(props) => <Login {...props} />} />
-                <PrivateRoute exact path="/feed" render={() => <Feed user={this.state.user} />} authenticated={authenticated}/>
-                <Route path="/register" render={() => <Register />} />
-                <PrivateRoute exact path="/affirmations" render={() => <MyPage user={this.state.user}/>} authenticated={authenticated}/>
-                <PrivateRoute exact path="/affirmationsform" render={() => <AffirmationsForm user={this.state.user}/>} authenticated={authenticated}/>
-                <Route path="/landing" render={() => <Landing user={this.state.user}/>} />
-                <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={authenticated}/>
-              </Switch>
-            </div>
-            <button type="button" onClick={this.logout}>Logout</button>
-            <AddCircleIcon className="newPostButton" style={{ fontSize: "70px" }} onClick={this.handleClick}/>
-            <Dialog
-              open={this.state.open}
-              onClose={this.handleClose}
-              aria-labelledby="form-dialog-title"
-              fullWidth={false}
-              maxWidth = {'md'}
-              >
-              <PostForm user={user} handleClose={this.handleClose}/>
-            </Dialog>
-          </div>
-        </Router>
+          </Router>
+        </div>
       </div>
     );
   }
