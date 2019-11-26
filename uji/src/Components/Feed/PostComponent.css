@@ -36,6 +36,7 @@
   width: 90%;
   padding-left: 5%;
   padding-right: 5%;
+  word-wrap: break-word;
   color: var(--main-txt-color);
 }
 
@@ -44,11 +45,13 @@
   float: right;
   justify-content: center;
   padding-right: 20px;
+  bottom: 5px;
 }
 
 .numberLikes {
   padding-right: 10px;
   align-content: center;
+  bottom: 5px;
 }
 
 .dialog {
