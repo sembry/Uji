@@ -50,7 +50,7 @@ class Post extends React.Component {
           <div className = "postContainer">
             <div className = "userName">
               <strong>{this.props.postUserName}</strong>
-              <button type="button" onClick={this.handleClick}>Send Compliment</button>
+              <button type="button" className = "complimentButton" onClick={this.handleClick}>Send Compliment</button>
               <Dialog
                 open={this.state.open}
                 onClose={this.handleClose}

@@ -64,6 +64,11 @@
   bottom: 20px;
 }
 
+.complimentButton {
+  position: absolute;
+  right: 25px;
+}
+
 input[type = "checkbox"] {
   margin-right: 25px;
   display: inline-block;
