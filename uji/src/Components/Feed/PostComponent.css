@@ -8,8 +8,9 @@
 }
 
 .postContainer {
-  height: 150px;
-  width: 100%;
+  position: relative;
+  height: auto;
+  width: 500px;
   background-color: var(--background-color);
   margin: 20px;
   padding-top: 20px;
@@ -41,17 +42,18 @@
 }
 
 .likeContainer {
+  position: relative;
   display: flex;
   float: right;
   justify-content: center;
   padding-right: 20px;
-  bottom: 5px;
+  bottom: 10px;
 }
 
 .numberLikes {
+  position: relative;
   padding-right: 10px;
   align-content: center;
-  bottom: 5px;
 }
 
 .dialog {
