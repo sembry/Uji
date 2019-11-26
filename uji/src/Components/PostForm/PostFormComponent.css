@@ -53,5 +53,10 @@
 }
 
 .anonymousCheck {
+  bottom: 20px;
+}
 
+.checkbox-text {
+  font-size: 20px;
+  bottom: 20px;
 }

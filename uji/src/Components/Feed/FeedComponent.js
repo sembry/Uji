@@ -8,14 +8,12 @@ import "animate.css/animate.min.css";
 // https://www.npmjs.com/package/react-animate-on-scroll
 import ScrollAnimation from 'react-animate-on-scroll';
 
-
 class Feed extends React.Component {
   constructor(props) {
     super(props);
     this.state =  {db: null,
       loading: true};
     }
-
     // fetches data asynchronously from the posts database
     componentDidMount = () => {
       const posts = firebase.database().ref('posts');
