@@ -31,10 +31,9 @@ class Feed extends React.Component {
       // data fetched
       return (
         (loading ? (
-          <div> </div>
+          <div></div>
         ) : (
           <div style={{ height: '100%' }} className="feedContainer">
-            <div className="affirmationTitle"> My Feed </div>
                 {Object.keys(db).reverse().map(key =>
                   <ScrollAnimation animateIn='fadeIn'>
                     <Post postUserName={db[key].username}

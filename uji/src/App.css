@@ -19,6 +19,7 @@
 }
 
 .UJI {
+  position: fixed;
   padding-top: var(--large-padding);
   padding-left: var(--large-padding);
   width: 90px;
@@ -43,7 +44,8 @@
 }
 
 .profileButton {
-  padding-right: var(--large-padding);
+  position: fixed;
+  right: var(--large-padding);
   padding-top: 25px;
   color: var(--main-accent-color);
   cursor: pointer;
@@ -97,7 +99,7 @@
   0% {
    opacity: 0;
   }
-  
+
  100% {
    opacity: 1;
   }
