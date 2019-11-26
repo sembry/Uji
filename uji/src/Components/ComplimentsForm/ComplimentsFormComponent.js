@@ -15,7 +15,12 @@ const ComplimentsFormView = ({ onSubmit, handleClose, complimentReceiver } ) => 
         </div>
         <div className = "postText">
           <form onSubmit={onSubmit}>
-            <TextField type="text" name="content" placeholder="Write anything" />
+          <TextField className = "textField"
+              type="text"
+              multiline
+              name="content"
+              rows="2"
+              placeholder="Write anything" />
             <div className="submitButton">
               <button>Send Compliment</button>
             </div>

@@ -78,9 +78,6 @@ class App extends React.Component{
     const { authenticated, loading } = this.state;
     var user = firebase.auth().currentUser;
 
-    if (loading) {
-      return <p>Loading...</p>;
-    }
     return (
       <div class="App Fade">
         <div className="App">
