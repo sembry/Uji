@@ -53,10 +53,18 @@
 }
 
 .anonymousCheck {
+  margin-top: 25px;
   bottom: 20px;
+  margin-right: 20px;
 }
 
 .checkbox-text {
+  display: inline-block;
   font-size: 20px;
   bottom: 20px;
+}
+
+input[type = "checkbox"] {
+  margin-right: 25px;
+  display: inline-block;
 }

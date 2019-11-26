@@ -12,7 +12,7 @@
   height: auto;
   width: 500px;
   background-color: var(--background-color);
-  margin: 20px;
+  margin: 20px auto;
   padding-top: 20px;
   border-radius: 20px;
   box-shadow: 1px 1px 1px var(--main-shadow-color);
