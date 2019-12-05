@@ -4,6 +4,7 @@
   --background-color: #F5F4FF;
   --main-accent-color: #561FCC;
   --main-txt-color: black;
+  --main-shadow-color: rgb(126, 117, 138);
 }
 
 .affirmationsForm{
@@ -19,6 +20,7 @@
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 20px;
+  box-shadow: 1px 1px 1px var(--main-shadow-color);
 }
 
 .prompts {
@@ -28,4 +30,10 @@
   font-weight: normal;
   font-size: 18px;
   color: var(--main-txt-color);
+}
+
+input[type = "text"] {
+  position: relative;
+  width: 85%;
+  left: 5%;
 }
