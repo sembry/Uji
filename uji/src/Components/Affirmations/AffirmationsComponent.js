@@ -12,6 +12,15 @@ class Affirmations extends React.Component {
       db: null,
       loading: true
     };
+    this.affirmationPrompts = {
+      "q1": "My greatest strengths are…",
+      "q2": "Fill in the blank: I was proud of myself when I ______. Why?",
+      "q3": "What would you do today if you had all the confidence in the world? What about in a year?"
+    };
+  }
+
+  goToAffirmationsForm = (e) => {
+    this.props.history.push("/affirmationsform");
   }
 
   // fetches data asynchronously from the posts database
@@ -22,14 +31,10 @@ class Affirmations extends React.Component {
         var filtered = res.val()[this.props.user.uid];
         this.setState({db: filtered, loading: false});
         if (filtered == null){
-          this.props.history.push("/affirmationsform");
+          this.goToAffirmationsForm();
         }
       }
     });
-  }
-
-  noAffirmations() {
-    this.props.history.push("/affirmationsform");
   }
 
   render() {
@@ -43,8 +48,10 @@ class Affirmations extends React.Component {
         db ? (
           <div className="affirmationContainer">
             <div className="affirmationTitle"> My Affirmations </div>
+            <button onClick={this.goToAffirmationsForm}> Edit Affirmations </button>
             {Object.keys(db).map(key =>
-              <AffirmationsCard postText={db[key]}/>
+              <AffirmationsCard promptText={this.affirmationPrompts[key]}
+                postText={db[key]}/>
             )}
           </div>
         ) : (

@@ -30,7 +30,12 @@ import ImageUpload from './ImageUpload';
 class App extends React.Component{
   constructor(props) {
     super(props);
-    this.state = { loading: true, authenticated: false, user: null, open: false };
+    this.state = {
+      loading: true,
+      authenticated: false,
+      user: null,
+      open: false,
+    };
   }
 
   componentWillMount() {
@@ -81,7 +86,6 @@ class App extends React.Component{
     return (
       <div class="App Fade">
         <div className="App">
-          {/* <ImageUpload /> */}
           <Router>
             <div className="Parent">
               <div className="Header">
@@ -95,17 +99,20 @@ class App extends React.Component{
               <div className="frame">
                 <Switch>
                   <PrivateRoute exact path="/" render={() => <Feed user={this.state.user}/>} authenticated={authenticated}/>
+                  <Route path="/landing"
+                    render={
+                      authenticated ? () => <Feed user={this.state.user}/> :
+                      () => <Landing user={this.state.user}/>} authenticated={authenticated}/>
                   <Route path="/login" render={(props) => <Login {...props} />} />
-                  <PrivateRoute exact path="/feed" render={() => <Feed user={this.state.user} />} authenticated={authenticated}/>
+                  <PrivateRoute path="/feed" render={() => <Feed user={this.state.user} />} authenticated={authenticated}/>
                   <Route path="/register" render={() => <Register />} />
                   <PrivateRoute exact path="/affirmations" render={() => <MyPage user={this.state.user}/>} authenticated={authenticated}/>
                   <PrivateRoute exact path="/affirmationsform" render={() => <AffirmationsForm user={this.state.user}/>} authenticated={authenticated}/>
-                  <Route path="/landing" render={() => <Landing user={this.state.user}/>} />
                   <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={authenticated}/>
                 </Switch>
               </div>
-              <button className = "logout" type="button" onClick={this.logout}>Logout</button>
-              <AddCircleIcon className="newPostButton" style={{ fontSize: "70px" }} onClick={this.handleClick}/>
+              <button className = {this.state.user ? 'logout' : "hidden"} type="button" onClick={this.logout}>Logout</button>
+              <AddCircleIcon className = {this.state.user ? 'newPostButton' : "hidden"} style={{ fontSize: "70px" }} onClick={this.handleClick}/>
               <Dialog
                 open={this.state.open}
                 onClose={this.handleClose}
