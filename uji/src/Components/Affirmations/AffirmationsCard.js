@@ -13,11 +13,10 @@ class AffirmationsCard extends React.Component {
 
   render() {
     return (
-      <Interactable.View
-          onDrag={this.onDragEvent}
-          gravityPoints={[{x: 0, y: 0, strength: 1000, falloff: 500, damping: 0.5}]}>
-          <div className="affirmationsCardContainer">{this.props.postText}</div>
-      </Interactable.View>
+      <div>
+       <p> {this.props.promptText} </p>
+       <div className="affirmationsCardContainer">{this.props.postText}</div>
+      </div>
     );
   }
 }
