@@ -6,6 +6,7 @@ import Interactable from 'react-interactable/noNative'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ComplimentsForm from '../ComplimentsForm/'
 import Dialog from '@material-ui/core/Dialog';
+import SendRoundedIcon from '@material-ui/icons/SendRounded';
 
 class Post extends React.Component {
   constructor(props) {
@@ -35,22 +36,21 @@ class Post extends React.Component {
       '&:hover': {
         color: "#F5F4FF",
       },
-      fontSize: "20px",
       cursor: "pointer",
     }
 
     return (
 
       <Interactable.View
-          // horizontalOnly={true}
-          // snapPoints={[{x: 0}, {x: 200}]}
-          // onSnap={this.onDrawerSnap}
           onDrag={this.onDragEvent}
           gravityPoints={[{x: 0, y: 0, strength: 1000, falloff: 500, damping: 0.5}]}>
           <div className = "postContainer">
             <div className = "userName">
               <strong>{this.props.postUserName}</strong>
-              <button type="button" className = "complimentButton" onClick={this.handleClick}>Send Compliment</button>
+              <SendRoundedIcon className = "complimentButton"
+                style = {styles}
+                onClick = {this.handleClick}
+                />
               <Dialog
                 open={this.state.open}
                 onClose={this.handleClose}
@@ -68,7 +68,7 @@ class Post extends React.Component {
             </div>
             <div className = "likeContainer">
               <strong className = "numberLikes">{this.state.likes}</strong>
-              <ThumbUpIcon
+              <ThumbUpIcon className = "thumbUpIcon"
                 style = {styles}
                 onClick={this.updateLike}
                 />

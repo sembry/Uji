@@ -3,7 +3,6 @@ import './AffirmationsFormComponent.css';
 import firebase from '../../firebase.js';
 import { withRouter, Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
-
 class AffirmationsForm extends React.Component {
   constructor(props) {
     super(props);
@@ -54,11 +53,11 @@ class AffirmationsForm extends React.Component {
                 <input type="text" name="q1" placeholder="Write anything" onChange={this.handleChange} value={this.state.content["q1"]}/>
 
                 <h1>Question 2</h1>
-                <p> 2. Fill in the blank: I was proud of myself when I ______. Why? </p>
+                <p> Fill in the blank: I was proud of myself when I ______. Why? </p>
                 <input type="text" name="q2" placeholder="Write anything" onChange={this.handleChange} value={this.state.content["q2"]}/>
 
                 <h1>Question 3</h1>
-                <p> 3. What would you do today if you had all the confidence in the world? What about in a year?</p>
+                <p> What would you do today if you had all the confidence in the world? What about in a year?</p>
                 <input type="text" name="q3" placeholder="Write anything" onChange={this.handleChange} value={this.state.content["q3"]}/>
                 <button>Submit</button>
               </form>

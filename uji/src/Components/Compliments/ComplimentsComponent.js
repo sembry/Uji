@@ -38,14 +38,14 @@ class Compliments extends React.Component {
       ) : (
         db ? (
           <div>
-          <h1> My Compliments </h1>
+          <h1 className = "complimentsHeader"> My Compliments </h1>
             {Object.keys(db).map(key =>
               <p>{db[key].content}</p>
             )}
           </div>
         ) : (
           <div>
-          <h1> My Compliments </h1>
+          <h1 className = "complimentsHeader"> My Compliments </h1>
           <p> Compliments from others will be shown here! </p>
           </div>
         )

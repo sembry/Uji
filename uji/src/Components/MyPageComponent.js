@@ -14,7 +14,7 @@ class MyPage extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className = "personalPage">
         <Affirmations user={this.props.user}></Affirmations>
         <Compliments user={this.props.user}></Compliments>
       </div>

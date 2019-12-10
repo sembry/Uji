@@ -25,6 +25,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import AccountCircle from './profileButton';
 import FeedButton from './feedButton';
 import ImageUpload from './ImageUpload';
+import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 
 
 class App extends React.Component{
@@ -111,7 +112,10 @@ class App extends React.Component{
                   <PrivateRoute exact path="/profile" render={() => <Profile user={this.state.user} />} authenticated={authenticated}/>
                 </Switch>
               </div>
-              <button className = {this.state.user ? 'logout' : "hidden"} type="button" onClick={this.logout}>Logout</button>
+              <ExitToAppRoundedIcon className = {this.state.user ? 'logout' : "hidden"}
+                onClick = {this.logout}
+                style={{ fontSize: "70px" }}
+              />
               <AddCircleIcon className = {this.state.user ? 'newPostButton' : "hidden"} style={{ fontSize: "70px" }} onClick={this.handleClick}/>
               <Dialog
                 open={this.state.open}
