@@ -9,7 +9,7 @@ const PostFormView = ({ onSubmit, displayName, handleClose, checkboxValue, handl
     return (
       <div className = "postFormContainer">
         <div className = "userName">
-          <strong className = "name">{displayName}</strong>
+          <strong className = "name">{checkboxValue ? "Anonymous" : displayName}</strong>
           <div className = "close">
             <CloseIcon onClick={handleClose}/>
           </div>
