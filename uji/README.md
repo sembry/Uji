@@ -2,6 +2,7 @@
 ## Created by: Nancy Cao, Sarah Embry and Heather Wing
 Uji is a social community web application platform where women can practice
 self-promotion by sharing their accomplishments and getting support for it.
+Technologies used: ReactJS, Firebase
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
