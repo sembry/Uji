@@ -55,3 +55,8 @@ body, html {
   font-weight: normal;
   border-radius: 10px;
 }
+
+.personalPage {
+  position: relative;
+  align-content: center;
+}

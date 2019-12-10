@@ -24,7 +24,8 @@ const PostFormView = ({ onSubmit, displayName, handleClose, checkboxValue, handl
                 placeholder="Write anything"
             />
             <FormControlLabel
-              control={<Switch onChange={handleChange} value={checkboxValue} />}
+              control={
+                <Switch onChange={handleChange} value={checkboxValue} />}
               label="Post Anonymously"
             />
             <div className="submitButton">
