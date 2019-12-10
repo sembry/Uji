@@ -45,16 +45,22 @@
   display: flex;
   justify-content: flex-end;
   right: 20px;
-  bottom: 10px;
+  bottom: 12px;
   height: 20px;
 }
 
 .numberLikes {
   position: relative;
-  padding-right: 10px;
+  padding-right: 8px;
   align-content: center;
   display: flex;
   bottom: -5px;
+}
+
+.complimentButton {
+  position: absolute;
+  right: 20px;
+  height: 20px;
 }
 
 .dialog {
