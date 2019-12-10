@@ -24,7 +24,6 @@ import Dialog from '@material-ui/core/Dialog';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import AccountCircle from './profileButton';
 import FeedButton from './feedButton';
-import ImageUpload from './ImageUpload';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 
 
