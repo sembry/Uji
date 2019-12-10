@@ -14,10 +14,10 @@ const RegisterView = ({ onSubmit }) => {
         </div>
       <section className="credentials">
           <form onSubmit={onSubmit}>
-            <input type="text" name="firstname" placeholder="First name" />
-            <input type="text" name="lastname" placeholder="Last name" />
-            <input type="email" name="email" placeholder="Email" />
-            <input type="password" name="password" placeholder="Password" />
+            <input className = "formInput" type="text" name="firstname" placeholder="First name" />
+            <input className = "formInput" type="text" name="lastname" placeholder="Last name" />
+            <input className = "formInput" type="email" name="email" placeholder="Email" />
+            <input className = "formInput" type="password" name="password" placeholder="Password" />
             <button type="submit">Submit</button>
           </form>
     </section>
