@@ -78,8 +78,8 @@
   position: fixed;
   bottom: var(--large-padding);
   left: var(--large-padding);
-  color: white;
   cursor: pointer;
+  color: var(--main-accent-color);
 }
 
 .logout:hover {

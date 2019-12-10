@@ -6,7 +6,7 @@ import Interactable from 'react-interactable/noNative'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ComplimentsForm from '../ComplimentsForm/'
 import Dialog from '@material-ui/core/Dialog';
-import SendSharpIcon from '@material-ui/icons/SendSharp';
+import SendRoundedIcon from '@material-ui/icons/SendRounded';
 
 class Post extends React.Component {
   constructor(props) {
@@ -47,7 +47,7 @@ class Post extends React.Component {
           <div className = "postContainer">
             <div className = "userName">
               <strong>{this.props.postUserName}</strong>
-              <SendSharpIcon className = "complimentButton"
+              <SendRoundedIcon className = "complimentButton"
                 style = {styles}
                 onClick = {this.handleClick}
                 />
