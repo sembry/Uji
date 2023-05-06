@@ -17,7 +17,7 @@
     "react-interactable": "^0.6.4",
     "react-native-interactable": "^1.0.0",
     "react-panresponder-web": "^1.0.2",
-    "react-scripts": "3.1.2",
+    "react-scripts": "5.0.1",
     "react-scroll": "^1.7.14",
     "react-web-animation": "^0.7.0"
   },
